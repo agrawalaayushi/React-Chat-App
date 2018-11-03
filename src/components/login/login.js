@@ -16,6 +16,11 @@ class Login extends Component {
   }
 
 
+  //-----------------------------------
+  // Methods
+  //-----------------------------------
+
+
   usernameChangeHandler(event) {
     this.setState({ username: event.target.value });
   }
@@ -29,6 +34,14 @@ class Login extends Component {
     // this.setState({ username: this.state.username });
     this.props.submitUserNameCallback(params);
   }
+
+  //-----------------------------------
+  // Views
+  //-----------------------------------
+
+  //-----------------------------------
+  // Lifecycles
+  //-----------------------------------
 
   render() {
     // const { simpleActionResponse } = this.props;

@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import '../styles/app.scss';
 import { Header } from './header/header';
 import Login from './login/login';
+import ChatApp from './chat-app-screen/chat-app';
 
 class Home extends Component {
   
@@ -16,26 +17,34 @@ class Home extends Component {
   // simpleAction(event) {
   //   this.props.simpleAction();
   //  }
-
+  //-----------------------------------
+  // Methods
+  //-----------------------------------
    submitLoginCredential(loginDetails) {
-     debugger
     this.setState({ 
       isUserNameSubmitted: loginDetails.isUserNameSubmitted, 
       username: loginDetails.username 
     });
-
    }
+
+  //-----------------------------------
+  // Methods
+  //-----------------------------------
+  //-----------------------------------
+  // Methods
+  //-----------------------------------
+
   render() {
     const { username, isUserNameSubmitted } = this.state;
 
     return (
-      <div className="chat-app">
+      <div className="chat-app-home">
         <Header />
-        {!isUserNameSubmitted &&
+        {!isUserNameSubmitted ?
           <Login
           submitUserNameCallback = {(loginDetails) => this.submitLoginCredential(loginDetails)}/>
-          // :
-          // <ChatApp />
+          :
+          <ChatApp />
         }
       
       </div>
