@@ -75,12 +75,11 @@ class FriendList extends Component {
         <div className="left-col-header">
           
         </div>
-          <SearchBar handleSearchQueryCallback={(searchDetails) => this.handleSearchInput(searchDetails)} />
-        { 
-          filteredContacts.length ? filteredContacts.map((friend, index)=> this.getContactName(friend)):
-          (this.getEmptyView()) 
-        }
+        <SearchBar handleSearchQueryCallback={(searchDetails) => this.handleSearchInput(searchDetails)} />
         
+        { filteredContacts.length ? filteredContacts.map((friend, index)=> this.getContactName(friend)):
+          (this.getEmptyView()) }
+
       </div>
     );
   }

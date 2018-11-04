@@ -47,6 +47,9 @@
     height: 100vh;
     position: relative;
     overflow: hidden; }
+    .chat-app-home .chat-app-container .friend-list-container .search-bar input {
+      padding: 8px;
+      width: 100%; }
     .chat-app-home .chat-app-container .friend-list-container .friend-name-wrapper {
       display: flex;
       background-color: white;

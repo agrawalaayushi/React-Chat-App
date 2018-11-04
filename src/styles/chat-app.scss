@@ -12,6 +12,12 @@
       // padding: 10px;
       position: relative;
       overflow: hidden;
+      .search-bar {
+        input {
+          padding: 8px;
+          width: 100%;
+        }
+      }
       .friend-name-wrapper {
         display: flex;
         background-color: white;
