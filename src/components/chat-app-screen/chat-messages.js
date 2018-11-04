@@ -20,6 +20,12 @@ class ChatMessages extends Component {
   // Lifecycles
   //-----------------------------------
 
+  componentDidUpdate() {
+    // There is a new message in the state, scroll to bottom of list
+    const objDiv = document.getElementById('messageList');
+    objDiv.scrollTop = objDiv.scrollHeight;
+  }
+
   render() {
     const { messages } = this.props;
     const messageList = messages.map((message, i) => {
@@ -32,7 +38,7 @@ class ChatMessages extends Component {
       );
     });
     return (
-      <div className="chat-messages">
+      <div className="chat-messages" id="messageList">
         {messageList}
       </div>
     );

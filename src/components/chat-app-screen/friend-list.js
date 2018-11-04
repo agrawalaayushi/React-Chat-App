@@ -37,7 +37,7 @@ class FriendList extends Component {
 
   getContactName(friend) {
     return (
-      <ContactName friend={friend}/>
+      <ContactName friend={friend} key={friend.id}/>
     )
   }
 

@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { CHAT_MESSAGES } from '../../constants/dummy-array';
 
 import MessageInput from './message-input';
-import ChatMessages from './chat-message';
+import ChatMessages from './chat-messages';
 
 class ChatHistory extends Component {
   constructor(props) {
