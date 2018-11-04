@@ -13,7 +13,6 @@ const reducer = (state = initialState, action) => {
 
   switch (action.type) {
     case ActionTypes.SIMPLE_ACTION: {
-      debugger
       state = state.set('simpleActionResponse', action.payload);
       return state;
     }

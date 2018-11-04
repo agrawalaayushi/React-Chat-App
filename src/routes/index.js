@@ -5,7 +5,7 @@ import {
 import Home from '../components/home';
 // import MovieDetailPage from '../components/Movie/movie-detail-page';
 
-import '../styles/app.css';
+import '../styles/index.css';
 
 export default () => (
    <BrowserRouter>

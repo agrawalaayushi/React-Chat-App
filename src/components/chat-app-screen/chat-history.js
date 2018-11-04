@@ -22,7 +22,7 @@ class ChatHistory extends Component {
   render() {
     // const { simpleActionResponse } = this.props;
     return (
-      <div className="chat-app-message">
+      <div className="chat-message-container">
         This is Chat History
        
       </div>

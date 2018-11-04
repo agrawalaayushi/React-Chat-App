@@ -25,7 +25,6 @@ class ChatApp extends Component {
     // const { simpleActionResponse } = this.props;
     return (
       <div className="chat-app-container">
-        This is Chat App
         <FriendList />
         <ChatHistory />
       </div>

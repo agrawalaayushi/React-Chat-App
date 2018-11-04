@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 // import { simpleAction } from '../actions/action';
-import '../styles/app.scss';
+// import '../styles/app.scss';
 import { Header } from './header/header';
 import Login from './login/login';
 import ChatApp from './chat-app-screen/chat-app';
@@ -40,12 +40,12 @@ class Home extends Component {
     return (
       <div className="chat-app-home">
         <Header />
-        {!isUserNameSubmitted ?
+        {/* {!isUserNameSubmitted ?
           <Login
           submitUserNameCallback = {(loginDetails) => this.submitLoginCredential(loginDetails)}/>
-          :
+          : */}
           <ChatApp />
-        }
+        {/* } */}
       
       </div>
     );

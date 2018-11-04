@@ -1,0 +1,38 @@
+@import "mixins.scss";
+
+.chat-app-home {
+  .chat-app-container {
+    // margin: 0 20px;
+    display: flex;
+    height: 100vh;
+    .friend-list-container {
+      width: 30%;
+      border-right: 1px solid black;
+      height: 100vh;
+      // padding: 10px;
+      position: relative;
+      overflow: hidden;
+      .friend-name-wrapper {
+        display: flex;
+        background-color: white;
+        border-bottom: 1px solid #e5e5e5;
+        padding: 10px;  
+        .profile-image {
+          @include profile-img-circle(25px, 25px);
+        }
+        .friend-name {
+          flex-grow: 1;
+          overflow: hidden;
+          position: relative;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        }
+      }
+    } 
+    .chat-message-container{
+      width: 70%;
+      height: 100vh;
+      padding: 10px;
+    }
+  }
+}
