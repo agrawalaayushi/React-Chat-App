@@ -1,15 +1,24 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { CHAT_MESSAGES } from '../../constants/dummy-array';
+
+import MessageInput from './message-input';
+import ChatMessages from './chat-message';
 
 class ChatHistory extends Component {
   constructor(props) {
     super(props);
-  
+    this.state = {
+      messages: CHAT_MESSAGES
+    }
   }
 
   //-----------------------------------
   // Methods
   //-----------------------------------
+
+  sendMessage(message) {
+  }
 
   //-----------------------------------
   // Views
@@ -20,24 +29,18 @@ class ChatHistory extends Component {
   //-----------------------------------
 
   render() {
-    // const { simpleActionResponse } = this.props;
+    const { messages } = this.state;
     return (
       <div className="chat-message-container">
-        This is Chat History
-       
+        <ChatMessages messages={messages}/>
+        <MessageInput
+          placeholder="Write a message.." 
+          handleSendMessageCallback={(message) => this.sendMessage(message)}
+        />
       </div>
     );
   }
 }
 
-
-// const mapStateToProps = state => ({
-//   ...state,
-//   // simpleActionResponse: state.reducer.get("simpleActionResponse")
-// })
-
-//  const mapDispatchToProps = dispatch => ({
-//   simpleAction: () => dispatch(simpleAction())
-//  })
 
 export default connect(null)(ChatHistory);

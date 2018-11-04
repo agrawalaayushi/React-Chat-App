@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import SearchBar from '../common/search-bar/search-bar';
 import { EmptyView } from '../common/empty-view/empty-view';
 import { ContactName } from '../common/contact-name/contact-name';
+import { CHAT_FRIENDS } from '../../constants/dummy-array';
 
 
 function searchingFor(searchName) {
@@ -15,23 +16,7 @@ class FriendList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      friendsList : [
-        {
-          id: 0, 
-          first: "Mark",
-          userName: "Mark Jordan"
-        },
-        {
-          id: 1, 
-          first: "Linda",
-          userName: "Linda"
-        },
-        {
-          id: 2, 
-          first: "Monica",
-          userName: "Monica"
-        },
-      ],
+      friendsList : CHAT_FRIENDS,
       searchName: ''
     }
   }
