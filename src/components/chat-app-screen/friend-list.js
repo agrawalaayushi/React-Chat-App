@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import SearchBar from '../common/search-bar/search-bar';
+import { EmptyView } from '../common/empty-view/empty-view';
+import { ContactName } from '../common/contact-name/contact-name';
 
 
 function searchingFor(searchName) {
@@ -48,42 +50,40 @@ class FriendList extends Component {
   // Views
   //-----------------------------------
 
+  getContactName(friend) {
+    return (
+      <ContactName friend={friend}/>
+    )
+  }
+
+  getEmptyView() {
+    return(
+      <EmptyView field="No contacts found"/>
+    )
+  }
+
   //-----------------------------------
   // Lifecycles
   //-----------------------------------
 
   render() {
     const { friendsList, searchName } = this.state;
+    var filteredContacts  =  friendsList.filter(searchingFor(searchName));
+
     return (
       <div className="friend-list-container">
         <div className="left-col-header">
-        
+          
         </div>
           <SearchBar handleSearchQueryCallback={(searchDetails) => this.handleSearchInput(searchDetails)} />
-
-        {
-          friendsList && friendsList.filter(searchingFor(searchName)).map((friend, index) =>{
-            return (
-              <div className="friend-name-wrapper" key={friend.id.toString()}>
-                <div className="profile-image"></div>
-                <div className="friend-name"><span>{friend.userName}</span></div>
-              </div>
-            )
-          })
+        { 
+          filteredContacts.length ? filteredContacts.map((friend, index)=> this.getContactName(friend)):
+          (this.getEmptyView()) 
         }
+        
       </div>
     );
   }
 }
-
-
-// const mapStateToProps = state => ({
-//   ...state,
-//   // simpleActionResponse: state.reducer.get("simpleActionResponse")
-// })
-
-//  const mapDispatchToProps = dispatch => ({
-//   simpleAction: () => dispatch(simpleAction())
-//  })
 
 export default connect(null)(FriendList);
