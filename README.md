@@ -25,7 +25,9 @@ Make sure you have these Node(\^8.11.1), npm(v5.6.0) and yarn(\^1.6.0) are essen
     
 Development server should run at ```http://localhost:3000/```
 
-**3. Production build**
+### Production
+
+**1. Production build**
     
     yarn build
 
@@ -43,5 +45,7 @@ Development server should run at ```http://localhost:3000/```
 - [SASS](http://sass-lang.com/) - styles
 - [ESLint](http://eslint.org/) - linter
 
-### Production
+### Build With
+*Chatkit : https://pusher.com/chatkit
+*React JS 
     
