@@ -2,14 +2,23 @@
   display: flex;
   height: 100vh; }
   .chat-app-home .chat-app-container .friend-list-container {
-    width: 30%;
-    border-right: 1px solid black;
+    min-width: 30%;
+    border-right: 1px solid #e5e5e5;
     height: 100vh;
     position: relative;
     overflow: hidden; }
-    .chat-app-home .chat-app-container .friend-list-container .search-bar input {
+    .chat-app-home .chat-app-container .friend-list-container .search-bar {
+      background-color: #fbfbfb;
       padding: 8px;
-      width: 100%; }
+      display: flex;
+      align-items: center;
+      justify-content: center; }
+      .chat-app-home .chat-app-container .friend-list-container .search-bar input {
+        padding: 8px;
+        width: 100%;
+        border: 1px solid #e5e5e5;
+        text-overflow: ellipsis;
+        overflow: hidden; }
     .chat-app-home .chat-app-container .friend-list-container .friend-name-wrapper {
       display: flex;
       background-color: white;
@@ -28,6 +37,35 @@
         text-overflow: ellipsis;
         white-space: nowrap; }
   .chat-app-home .chat-app-container .chat-message-container {
-    width: 70%;
+    width: 60%;
     height: 100vh;
     padding: 10px; }
+    .chat-app-home .chat-app-container .chat-message-container .chat-messages .message {
+      min-width: 110px;
+      background-color: white;
+      width: 200px;
+      padding: 6px 7px 8px 9px;
+      margin-bottom: 5px; }
+      .chat-app-home .chat-app-container .chat-message-container .chat-messages .message .username {
+        display: flex;
+        font-size: 12.5px;
+        font-weight: 600;
+        color: #512da8;
+        line-height: 22px; }
+      .chat-app-home .chat-app-container .chat-message-container .chat-messages .message .message-content {
+        color: #262626;
+        font-size: 14px; }
+    .chat-app-home .chat-app-container .chat-message-container .message-input-wrp {
+      background-color: #efefef;
+      padding: 5px 10px;
+      margin-top: 20px;
+      position: absolute;
+      bottom: 10px; }
+      .chat-app-home .chat-app-container .chat-message-container .message-input-wrp .message-input {
+        background-color: #ffffff;
+        border-color: #fff;
+        border-radius: 21px;
+        border-style: solid;
+        border-width: 1px;
+        padding: 9px 12px 11px 12px;
+        margin: 5px 10px; }

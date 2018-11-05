@@ -2,20 +2,24 @@
 
 .chat-app-home {
   .chat-app-container {
-    // margin: 0 20px;
     display: flex;
     height: 100vh;
     .friend-list-container {
-      width: 30%;
-      border-right: 1px solid black;
+      min-width: 30%;
+      border-right: 1px solid #e5e5e5;
       height: 100vh;
-      // padding: 10px;
       position: relative;
       overflow: hidden;
       .search-bar {
+        background-color: #fbfbfb;
+        padding: 8px; 
+        @include flex-center();
         input {
           padding: 8px;
           width: 100%;
+          border: 1px solid #e5e5e5;
+          text-overflow: ellipsis;
+          overflow: hidden;
         }
       }
       .friend-name-wrapper {
@@ -35,10 +39,48 @@
         }
       }
     } 
-    .chat-message-container{
-      width: 70%;
+    .chat-message-container {
+      width: 60%;
       height: 100vh;
       padding: 10px;
+      .chat-messages {
+        .message{
+          min-width: 110px;
+          background-color: white;
+          width: 200px;
+          padding: 6px 7px 8px 9px;
+          margin-bottom: 5px;
+          .username {
+            display: flex;
+            font-size: 12.5px;
+            font-weight: 600;
+            color: #512da8;
+            line-height: 22px;
+          }
+          .message-content {
+            color: rgb(38, 38, 38);            
+            font-size: 14px;
+          }
+        }
+      }
+      .message-input-wrp {
+        background-color: #efefef;
+        padding: 5px 10px;
+        margin-top: 20px;
+        position: absolute;
+        bottom: 10px;
+        // width: 68%;
+
+        .message-input {
+          background-color: #ffffff;
+          border-color: #fff;
+          border-radius: 21px;
+          border-style: solid;
+          border-width: 1px;
+          padding: 9px 12px 11px 12px;
+          margin: 5px 10px;
+        }
+      }
     }
   }
 }

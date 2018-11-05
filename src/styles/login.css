@@ -1,0 +1,29 @@
+.login-container {
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+  .login-container .username-wrapper {
+    margin-top: 50px; }
+    .login-container .username-wrapper .username {
+      position: relative;
+      height: 2.5rem;
+      font-size: 1rem;
+      background-color: white;
+      padding: 0px 1rem;
+      border-width: 1px;
+      border-color: transparent;
+      border-radius: 2px;
+      margin: 20px; }
+    .login-container .username-wrapper .btn-wrapper .submit-btn {
+      color: #300d4f;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      display: flex;
+      line-height: 2.25rem;
+      background-color: #e9edf6;
+      padding: 0px 1.125rem;
+      margin: auto;
+      border-radius: 3px;
+      border-style: solid;
+      border-color: #e9edf6; }

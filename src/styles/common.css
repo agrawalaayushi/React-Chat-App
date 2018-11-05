@@ -37,3 +37,9 @@
     width: 64px;
     height: 64px;
     animation: spin 1.5s linear infinite; }
+
+.empty-state-wrapper .no-data-text {
+  padding: 50px;
+  text-align: center;
+  font-size: 14px;
+  color: #929fa6; }

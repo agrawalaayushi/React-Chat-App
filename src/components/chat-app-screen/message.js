@@ -10,7 +10,7 @@ class Message extends React.Component {
         <div className='username'>
           { this.props.userName }
         </div>
-        <div className='message-body'>
+        <div className='message-content'>
           { this.props.message }
         </div>
       </div>

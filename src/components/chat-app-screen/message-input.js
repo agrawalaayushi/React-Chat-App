@@ -44,15 +44,18 @@ class MessageInput extends Component {
   render() {
     const { message } = this.state;
     return (
-      <form  className="message-input" onSubmit={this.handleSubmit}>
-       <input
-        type="text"
-        value={message}
-        placeholder="Type your message here.."
-        onChange={this.handleInputChange}
-        required
-      />
-      </form>
+      <div>
+        <form  className="message-input-wrp" onSubmit={this.handleSubmit}>
+          <input
+            type="text"
+            value={message}
+            placeholder="Type your message here.."
+            onChange={this.handleInputChange}
+            className="message-input"
+            required
+          />
+        </form>
+      </div>
     );
   }
 }

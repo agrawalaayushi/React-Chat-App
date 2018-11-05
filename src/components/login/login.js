@@ -46,15 +46,20 @@ class Login extends Component {
   render() {
     // const { simpleActionResponse } = this.props;
     return (
-      <form onSubmit={this.usernameSubmitHandler} className="username-container">
-        <div>
-          <input
-            type="text"
-            onChange={this.usernameChangeHandler}
-            placeholder="Enter a username..."
-            required />
+      <form onSubmit={this.usernameSubmitHandler} className="login-container">
+        <div className="username-wrapper">
+          <div>
+            <input
+              placeholder="Enter a username..."
+              type="text"
+              onChange={this.usernameChangeHandler}
+              className="username"
+              required />
+          </div>
+          <div className="btn-wrapper"> 
+            <input type="submit" value="Submit" className="submit-btn"/>
+          </div>
         </div>
-        <input type="submit" value="Submit" />
       </form>
     );
   }

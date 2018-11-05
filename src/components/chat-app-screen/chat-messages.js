@@ -22,8 +22,8 @@ class ChatMessages extends Component {
 
   componentDidUpdate() {
     // There is a new message in the state, scroll to bottom of list
-    const objDiv = document.getElementById('messageList');
-    objDiv.scrollTop = objDiv.scrollHeight;
+    const div = document.getElementById('messageList');
+    div.scrollTop = div.scrollHeight;
   }
 
   render() {
