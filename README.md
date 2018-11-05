@@ -45,7 +45,9 @@ Development server should run at ```http://localhost:3000/```
 - [SASS](http://sass-lang.com/) - styles
 - [ESLint](http://eslint.org/) - linter
 
+
 ### Build With
-*Chatkit : https://pusher.com/chatkit
-*React JS 
+-[React JS]
+-[Chatkit](https://pusher.com/chatkit)
+
     
