@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { ChatManager, TokenProvider } from '@pusher/chatkit';
+import { instanceLocator, testToken, roomId } from '../../config';
+import { Loader } from '../common/loader-view/loader-view';
 
 import MessageInput from './message-input';
 import ChatMessages from './chat-messages';
@@ -19,8 +21,8 @@ class ChatHistory extends Component {
   //-----------------------------------
   // Methods
   //-----------------------------------
-
   sendMessage(message) {
+    debugger
     this.state.currentUser.sendMessage({
       text: message,
       roomId: this.state.currentRoom.id
@@ -30,18 +32,29 @@ class ChatHistory extends Component {
   }
 
  
+  //-----------------------------------
+  // Views
+  //-----------------------------------
+  getLoaderView() {
+    return (
+      <Loader />
+    )
+  }
 
   //-----------------------------------
   // Lifecycles
   //-----------------------------------
   componentDidMount() {
-    console.log(this.props.currentUserId)
+    console.log(roomId)
+    debugger
     const chatkit = new ChatManager({
+      // instanceLocator,
       instanceLocator: 'v1:us1:152e35ba-cb48-47b3-97c6-70f534ddd337',
+
       userId: this.props.currentUserId,
       tokenProvider: new TokenProvider({
-        url:
-        'https://us1.pusherplatform.io/services/chatkit_token_provider/v1/152e35ba-cb48-47b3-97c6-70f534ddd337/token'
+        url:         'https://us1.pusherplatform.io/services/chatkit_token_provider/v1/152e35ba-cb48-47b3-97c6-70f534ddd337/token'
+
       })
     })
 
@@ -49,9 +62,9 @@ class ChatHistory extends Component {
       .connect()
       .then(currentUser => {
         this.setState({ currentUser: currentUser })
-        console.log('Bleep bloop 🤖 You are connected to Chatkit')
+        console.log('application connected to Chatkit')
           return currentUser.subscribeToRoom({
-              roomId: 19372762, 
+              roomId: 19372771, 
               messageLimit: 100,
               hooks: {
                 onNewMessage: message => {
@@ -68,11 +81,16 @@ class ChatHistory extends Component {
       .catch(error => console.error('error', error))
   }
 
+
   render() {
-    const { messages } = this.state;
+    const { currentUserId } = this.props;
+    const { messages } = this.state;  
     return (
       <div className="chat-message-container">
-        <ChatMessages messages={messages}/>
+        <div className="chat-message-wrp">
+          {messages.length  ? <ChatMessages messages={messages} currentUserId={currentUserId}/>: 
+          this.getLoaderView()}
+        </div>
         <MessageInput
           placeholder="Write a message.." 
           handleSendMessageCallback={(message) => this.sendMessage(message)}

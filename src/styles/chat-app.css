@@ -37,30 +37,44 @@
         text-overflow: ellipsis;
         white-space: nowrap; }
   .chat-app-home .chat-app-container .chat-message-container {
-    width: 60%;
+    width: 70%;
     height: 100vh;
+    position: relative;
     padding: 10px; }
-    .chat-app-home .chat-app-container .chat-message-container .chat-messages .message {
-      min-width: 110px;
-      background-color: white;
-      width: 200px;
-      padding: 6px 7px 8px 9px;
-      margin-bottom: 5px; }
-      .chat-app-home .chat-app-container .chat-message-container .chat-messages .message .username {
+    .chat-app-home .chat-app-container .chat-message-container .chat-message-wrp {
+      max-height: 420px;
+      min-height: 420px;
+      overflow-y: auto; }
+      .chat-app-home .chat-app-container .chat-message-container .chat-message-wrp .chat-messages .message-wrp .message {
+        min-width: 110px;
+        background-color: white;
+        width: 250px;
+        padding: 6px 7px 8px 9px;
+        margin-bottom: 5px; }
+        .chat-app-home .chat-app-container .chat-message-container .chat-message-wrp .chat-messages .message-wrp .message .username {
+          display: flex;
+          font-size: 12.5px;
+          font-weight: 600;
+          color: #512da8;
+          line-height: 22px; }
+        .chat-app-home .chat-app-container .chat-message-container .chat-message-wrp .chat-messages .message-wrp .message .message-content {
+          color: #262626;
+          font-size: 14px;
+          position: relative;
+          white-space: pre-wrap;
+          word-wrap: break-word; }
+      .chat-app-home .chat-app-container .chat-message-container .chat-message-wrp .chat-messages .message-wrp.from-me {
         display: flex;
-        font-size: 12.5px;
-        font-weight: 600;
-        color: #512da8;
-        line-height: 22px; }
-      .chat-app-home .chat-app-container .chat-message-container .chat-messages .message .message-content {
-        color: #262626;
-        font-size: 14px; }
+        justify-content: flex-end; }
+        .chat-app-home .chat-app-container .chat-message-container .chat-message-wrp .chat-messages .message-wrp.from-me .message {
+          margin-bottom: 5px;
+          background-color: #ede7f6; }
     .chat-app-home .chat-app-container .chat-message-container .message-input-wrp {
       background-color: #efefef;
       padding: 5px 10px;
       margin-top: 20px;
       position: absolute;
-      bottom: 10px; }
+      width: 90%; }
       .chat-app-home .chat-app-container .chat-message-container .message-input-wrp .message-input {
         background-color: #ffffff;
         border-color: #fff;
@@ -68,4 +82,7 @@
         border-style: solid;
         border-width: 1px;
         padding: 9px 12px 11px 12px;
-        margin: 5px 10px; }
+        margin: 5px 10px;
+        width: 90%; }
+    .chat-app-home .chat-app-container .chat-message-container .loader-wrapper {
+      position: relative; }

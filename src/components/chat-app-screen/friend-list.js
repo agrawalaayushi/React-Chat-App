@@ -21,6 +21,7 @@ class FriendList extends Component {
     }
   }
 
+  
   //-----------------------------------
   // Methods
   //-----------------------------------
@@ -46,10 +47,6 @@ class FriendList extends Component {
       <EmptyView field="No contacts found"/>
     )
   }
-
-  //-----------------------------------
-  // Lifecycles
-  //-----------------------------------
 
   render() {
     const { friendsList, searchName } = this.state;

@@ -10,7 +10,6 @@ class SearchBar extends Component {
       this.handleInputChange = this.handleInputChange.bind(this)
     }
 
-
   //-----------------------------------
   // Methods
   //-----------------------------------
@@ -23,18 +22,9 @@ class SearchBar extends Component {
     })
   }
 
-  //-----------------------------------
-  // Views
-  //-----------------------------------
-
-  //-----------------------------------
-  // Lifecycles
-  //-----------------------------------
-
   render() {
     return (
       <div className='search-bar'>
-      <span><i class="fas fa-search"></i></span>
       <input
         placeholder="Search contact.."
         onChange={this.handleInputChange}

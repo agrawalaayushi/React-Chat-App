@@ -1,18 +1,22 @@
 import React from 'react';
 
 class Message extends React.Component {
+
   render() {
-    // Was the message sent by the current user. If so, add a css class
-    // const fromMe = this.props.fromMe ? 'from-me' : '';
-    
+    // If message sent by the current user, show those messages right side. 
+    const fromMe = (this.props.currentUserId === this.props.username )? 'from-me' : '';
     return (
-      <div className={`message`}>
-        <div className='username'>
-          { this.props.userName }
-        </div>
-        <div className='message-content'>
-          { this.props.message }
-        </div>
+      <div className={`message-wrp ${fromMe}`}>
+        <div className={`message ${fromMe}`}>
+          <div>
+            <div className='username'>
+                { this.props.username }
+              </div>
+              <div className='message-content'>
+                { this.props.message }
+            </div>
+          </div>
+        </div>  
       </div>
     );
   }
@@ -21,7 +25,6 @@ class Message extends React.Component {
 Message.defaultProps = {
   message: '',
   username: '',
-  // fromMe: false
 };
 
 export default Message;

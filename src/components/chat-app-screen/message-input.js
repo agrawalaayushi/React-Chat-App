@@ -15,31 +15,23 @@ class MessageInput extends Component {
   //-----------------------------------
   // Methods
   //-----------------------------------
-  handleSubmit(evt) {
+  handleSubmit(e) {
      // Stop the form from refreshing the page on submit
-    evt.preventDefault();
+    e.preventDefault();
     const { message } = this.state;
 
-     // Clear the input field
+     // Clear the input field after send message
     this.setState({ message: '' });
 
     //  Send the value of chat input message to the parent class
     this.props.handleSendMessageCallback(message);
   }
 
-  handleInputChange(evt) {
+  handleInputChange(e) {
     this.setState({
-      message: evt.target.value
+      message: e.target.value
     })
   }
-
-  //-----------------------------------
-  // Views
-  //-----------------------------------
-
-  //-----------------------------------
-  // Lifecycles
-  //-----------------------------------
 
   render() {
     const { message } = this.state;
@@ -49,7 +41,7 @@ class MessageInput extends Component {
           <input
             type="text"
             value={message}
-            placeholder="Type your message here.."
+            placeholder="Type your message here and press Enter.."
             onChange={this.handleInputChange}
             className="message-input"
             required

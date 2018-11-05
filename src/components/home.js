@@ -1,76 +1,80 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import axios from "axios";
-// import { simpleAction } from '../actions/action';
-// import '../styles/app.scss';
+
 import { Header } from './header/header';
 import Login from './login/login';
 import ChatApp from './chat-app-screen/chat-app';
+import { Loader } from './common/loader-view/loader-view';
+
+const URL = 'http://localhost:3001/users';
 
 class Home extends Component {
-  
   constructor(props) {
     super(props);
     this.state = { 
       currentUserId: '',
       currentUsername: '',
+      isLoader: false
     };
   }
 
-  // simpleAction(event) {
-  //   this.props.simpleAction();
-  //  }
+
   //-----------------------------------
   // Methods
   //-----------------------------------
-
    submitLoginCredential(username) {
-    let url = `http://localhost:3001/users`;
+     this.setState({
+       isLoader: true
+     })
+    let url = URL;
     axios.post(
-      url, username ,{
+      url, username, {
         headers: {
           'Content-Type': 'application/json',
         },
       })
     .then(response => {
       const successResponse = response.data;
+      debugger
+      // User id and user name are taken same 
       this.setState({
-          currentUserId: username.username,
-          currentUsername: username.username,
-          isUserNameSubmitted: true
-        })
+        currentUserId: username.username,
+        currentUsername: username.username,
+        isUsernameSubmitted: true,
+        isLoader: false
+      })
     })
     .catch(error => {
+      this.setState({
+        isLoader: false
+      })
       const errorResponse = error;
-      });
+    });
+  }
+
+  getLoaderView() {
+    return <Loader/>
   }
 
 
   render() {
-    const { currentUsername, currentUserId, isUserNameSubmitted } = this.state;
+    const { isLoader, currentUsername, currentUserId, isUsernameSubmitted } = this.state;
     return (
       <div className="chat-app-home">
         <Header />
-        {!isUserNameSubmitted ?
+        {isLoader && this.getLoaderView()}
+        {!isUsernameSubmitted ?
           <Login
           submitUserNameCallback = {(loginDetails) => this.submitLoginCredential(loginDetails)}/>
           :
           <ChatApp username={currentUsername} currentUserId={currentUserId} />
         }
-      
+       
       </div>
     );
   }
 }
 
 
-const mapStateToProps = state => ({
-  ...state,
-  // simpleActionResponse: state.reducer.get("simpleActionResponse")
-})
-
- const mapDispatchToProps = dispatch => ({
-  // simpleAction: () => dispatch(simpleAction())
- })
-
-export default connect(mapStateToProps, mapDispatchToProps)(Home);
+export default connect(null)(Home);

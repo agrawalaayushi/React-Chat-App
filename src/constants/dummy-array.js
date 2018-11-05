@@ -13,16 +13,25 @@ export const CHAT_FRIENDS = [
   {
     id: 0, 
     first: "Mark",
-    userName: "Mark Jordan"
+    senderId: "markjordan",
+    username: "markjordan",
   },
   {
     id: 1, 
-    first: "Linda",
-    userName: "Linda"
+    first: "Manu",
+    senderId: "manu",
+    username: "manu",
   },
   {
     id: 2, 
-    first: "Monica",
-    userName: "Monica"
+    first: "monica",
+    senderId: "monica",
+    username: "monica"
+  },
+  {
+    id: 3, 
+    first: "aayushi",
+    senderId: "aayushiagrawal",
+    username: "aayushiagrawal"
   }
 ] 
