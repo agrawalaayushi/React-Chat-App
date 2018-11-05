@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-// import { CHAT_MESSAGES } from '../../constants/dummy-array';
 import { ChatManager, TokenProvider } from '@pusher/chatkit';
 
 import MessageInput from './message-input';
@@ -52,7 +51,7 @@ class ChatHistory extends Component {
         this.setState({ currentUser: currentUser })
         console.log('Bleep bloop 🤖 You are connected to Chatkit')
           return currentUser.subscribeToRoom({
-              roomId: 19372751, 
+              roomId: 19372762, 
               messageLimit: 100,
               hooks: {
                 onNewMessage: message => {
@@ -70,7 +69,7 @@ class ChatHistory extends Component {
   }
 
   render() {
-    const { messages, currentUser } = this.state;
+    const { messages } = this.state;
     return (
       <div className="chat-message-container">
         <ChatMessages messages={messages}/>

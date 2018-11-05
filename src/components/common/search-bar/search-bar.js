@@ -34,9 +34,9 @@ class SearchBar extends Component {
   render() {
     return (
       <div className='search-bar'>
+      <span><i class="fas fa-search"></i></span>
       <input
-        // icon='search'
-        placeholder="Search or start new chat"
+        placeholder="Search contact.."
         onChange={this.handleInputChange}
       />
     </div>

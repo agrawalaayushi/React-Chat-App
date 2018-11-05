@@ -23,12 +23,6 @@ class Home extends Component {
   //-----------------------------------
   // Methods
   //-----------------------------------
-   submitLoginCredential(loginDetails) {
-    this.setState({ 
-      isUserNameSubmitted: loginDetails.isUserNameSubmitted, 
-      username: loginDetails.username 
-    });
-   }
 
    submitLoginCredential(username) {
     let url = `http://localhost:3001/users`;
