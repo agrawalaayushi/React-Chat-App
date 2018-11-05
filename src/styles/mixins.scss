@@ -4,3 +4,17 @@
   width: $width;
   white-space: nowrap;
 }
+
+@mixin profile-img-circle($width, $height) {
+  width: $width;
+  height: $height;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center;
+}
+
+@mixin flex-center() {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+} 
