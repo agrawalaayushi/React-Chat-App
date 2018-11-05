@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-
+import axios from "axios";
 // import { simpleAction } from '../actions/action';
 // import '../styles/app.scss';
 import { Header } from './header/header';
@@ -11,7 +11,10 @@ class Home extends Component {
   
   constructor(props) {
     super(props);
-    this.state = { username: ''   };
+    this.state = { 
+      currentUserId: '',
+      currentUsername: '',
+    };
   }
 
   // simpleAction(event) {
@@ -27,25 +30,39 @@ class Home extends Component {
     });
    }
 
-  //-----------------------------------
-  // Methods
-  //-----------------------------------
-  //-----------------------------------
-  // Methods
-  //-----------------------------------
+   submitLoginCredential(username) {
+    let url = `http://localhost:3001/users`;
+    axios.post(
+      url, username ,{
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      })
+    .then(response => {
+      const successResponse = response.data;
+      this.setState({
+          currentUserId: username.username,
+          currentUsername: username.username,
+          isUserNameSubmitted: true
+        })
+    })
+    .catch(error => {
+      const errorResponse = error;
+      });
+  }
+
 
   render() {
-    const { username, isUserNameSubmitted } = this.state;
-
+    const { currentUsername, currentUserId, isUserNameSubmitted } = this.state;
     return (
       <div className="chat-app-home">
         <Header />
-        {/* {!isUserNameSubmitted ?
+        {!isUserNameSubmitted ?
           <Login
           submitUserNameCallback = {(loginDetails) => this.submitLoginCredential(loginDetails)}/>
-          : */}
-          <ChatApp />
-        {/* } */}
+          :
+          <ChatApp username={currentUsername} currentUserId={currentUserId} />
+        }
       
       </div>
     );

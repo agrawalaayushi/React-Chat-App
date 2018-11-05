@@ -21,7 +21,7 @@ class MessageInput extends Component {
     const { message } = this.state;
 
      // Clear the input field
-     this.setState({ message: '' });
+    this.setState({ message: '' });
 
     //  Send the value of chat input message to the parent class
     this.props.handleSendMessageCallback(message);

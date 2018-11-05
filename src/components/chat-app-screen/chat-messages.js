@@ -32,9 +32,10 @@ class ChatMessages extends Component {
       return (
         <Message
           key={i}
-          userName={message.userName}
-          message={message.message}
-          fromMe={message.fromMe} />
+          userName={message.senderId}
+          message={message.text}
+          // fromMe={message.fromMe} 
+          />
       );
     });
     return (
