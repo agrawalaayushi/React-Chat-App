@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import Message from './message';
 import { Loader } from '../common/loader-view/loader-view';
+import Message from '../common/message/message';
 
 class ChatMessages extends Component {
 
@@ -19,7 +19,7 @@ class ChatMessages extends Component {
     const { currentUserId } = this.props;
     return (
       <Message
-        key={index}
+        key={index.toString()}
         username={message.senderId}
         message={message.text}
         currentUserId={currentUserId}
@@ -30,7 +30,6 @@ class ChatMessages extends Component {
   //-----------------------------------
   // Lifecycle
   //-----------------------------------
-
   componentDidUpdate() {
     // There is a new message in the state, scroll to bottom of list
     const div = document.getElementById('messageList');

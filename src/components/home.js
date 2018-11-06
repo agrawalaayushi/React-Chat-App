@@ -36,7 +36,6 @@ class Home extends Component {
       })
     .then(response => {
       const successResponse = response.data;
-      debugger
       // User id and user name are taken same 
       this.setState({
         currentUserId: username.username,

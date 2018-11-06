@@ -21,8 +21,9 @@ class ChatHistory extends Component {
   //-----------------------------------
   // Methods
   //-----------------------------------
+
+  // For sending the messages
   sendMessage(message) {
-    debugger
     this.state.currentUser.sendMessage({
       text: message,
       roomId: this.state.currentRoom.id
@@ -45,26 +46,24 @@ class ChatHistory extends Component {
   // Lifecycles
   //-----------------------------------
   componentDidMount() {
-    console.log(roomId)
-    debugger
+    // conneect the user to the chat kit.
     const chatkit = new ChatManager({
-      // instanceLocator,
-      instanceLocator: 'v1:us1:152e35ba-cb48-47b3-97c6-70f534ddd337',
-
+      instanceLocator,
       userId: this.props.currentUserId,
       tokenProvider: new TokenProvider({
-        url:         'https://us1.pusherplatform.io/services/chatkit_token_provider/v1/152e35ba-cb48-47b3-97c6-70f534ddd337/token'
-
+        url: testToken
       })
     })
 
+    // For recieving the messages.
     chatkit
       .connect()
       .then(currentUser => {
         this.setState({ currentUser: currentUser })
         console.log('application connected to Chatkit')
+        // We add a onNewMessage hook to the subscribeToRoom object. This hook will be triggered once a new message is sent. 
           return currentUser.subscribeToRoom({
-              roomId: 19372771, 
+              roomId: roomId, 
               messageLimit: 100,
               hooks: {
                 onNewMessage: message => {
