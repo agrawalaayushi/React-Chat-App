@@ -46,7 +46,8 @@ class ChatHistory extends Component {
   // Lifecycles
   //-----------------------------------
   componentDidMount() {
-    // conneect the user to the chat kit.
+    // create the an instance of the chatManager that will need to connect the user to the room.
+
     const chatkit = new ChatManager({
       instanceLocator,
       userId: this.props.currentUserId,
@@ -55,7 +56,7 @@ class ChatHistory extends Component {
       })
     })
 
-    // For recieving the messages.
+    // Connect chatkit instance, then subscribe the user to the room created. Also, store existing+new messages from the room.
     chatkit
       .connect()
       .then(currentUser => {
@@ -79,7 +80,6 @@ class ChatHistory extends Component {
       })
       .catch(error => console.error('error', error))
   }
-
 
   render() {
     const { currentUserId } = this.props;
