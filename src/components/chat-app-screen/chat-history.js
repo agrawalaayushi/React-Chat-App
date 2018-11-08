@@ -86,7 +86,7 @@ class ChatHistory extends Component {
     const { messages } = this.state;  
     return (
       <div className="chat-message-container">
-        <div className="chat-message-wrp">
+        <div className="chat-message-wrp" id="chatHistoryContainer">
           {messages.length  ? <ChatMessages messages={messages} currentUserId={currentUserId}/>: 
           this.getLoaderView()}
         </div>
