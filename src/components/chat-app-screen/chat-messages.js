@@ -32,14 +32,15 @@ class ChatMessages extends Component {
   //-----------------------------------
   componentDidUpdate() {
     // There is a new message in the state, scroll to bottom of list
-    const div = document.getElementById('messageList');
-    div.scrollTop = div.scrollHeight;
+    const div = document.getElementById('chatHistoryContainer');
+    if(div)
+      div.scrollTop = div.scrollHeight;
   }
 
   render() {
     const { messages } = this.props;
     return (
-      <div className="chat-messages" id="messageList">
+      <div className="chat-messages">
         {messages.map((message, index) => this.getMessageView(message, index))}
       </div>
     );
